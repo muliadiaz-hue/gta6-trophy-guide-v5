@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Platinum — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline tracker and guide for all 55 Grand Theft Auto VI trophies: checklist, roadmap to platinum, missables, and a cited guide for every trophy.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="brand">
+    <h1>Leonida Platinum</h1>
+    <p class="sub">GTA 6 Trophy Guide &amp; Tracker — all 55 trophies, offline</p>
+  </div>
+  <div class="totals" id="totals" aria-live="polite">
+    <span class="big"><strong id="earnedCount">0</strong> / 55</span>
+    <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+    <span class="pct" id="platinumPct">0% to platinum</span>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button data-view="checklist" class="active" aria-current="page">Checklist</button>
+  <button data-view="roadmap">Roadmap</button>
+  <button data-view="missables">Missables</button>
+  <button data-view="progress">Progress &amp; Settings</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="filters" role="search">
+      <input id="search" type="search" placeholder="Search a trophy or guide…" aria-label="Search trophies">
+      <select id="kindFilter" aria-label="Filter by kind">
+        <option value="">All kinds</option>
+        <option value="story">Story</option>
+        <option value="missable">Missable</option>
+        <option value="collectible">Collectibles</option>
+        <option value="activity">Activities</option>
+        <option value="robbery">Robbery</option>
+        <option value="side-story">Side stories</option>
+        <option value="misc">Misc</option>
+        <option value="completion">100% completion</option>
+      </select>
+      <select id="gradeFilter" aria-label="Filter by grade">
+        <option value="">All grades</option>
+        <option value="platinum">Platinum</option>
+        <option value="gold">Gold</option>
+        <option value="silver">Silver</option>
+        <option value="bronze">Bronze</option>
+      </select>
+      <select id="statusFilter" aria-label="Filter by status">
+        <option value="">All trophies</option>
+        <option value="earned">Earned</option>
+        <option value="remaining">Remaining</option>
+      </select>
+      <label class="spoiler"><input type="checkbox" id="spoilerToggle" checked> Spoiler mode <span class="hint">hide story trophies until earned</span></label>
+    </div>
+    <p class="countline" id="countLine"></p>
+    <div class="layout">
+      <ol class="list" id="trophyList"></ol>
+      <aside class="pane" id="guidePane" aria-live="polite">
+        <p class="pane-empty">Select a trophy on the left to open its guide, sources and progress counter here.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view" hidden>
+    <h2>Roadmap to platinum</h2>
+    <p class="lede">Seven stages from the first mission to the platinum, built from the official trophy descriptions. Work the stages in order; the Next-up planner always points at your next unearned trophy.</p>
+    <div class="nextup" id="nextUp"></div>
+    <div id="roadmapStages"></div>
+  </section>
+
+  <section id="view-missables" class="view" hidden>
+    <h2>Missables &amp; time-sensitive trophies</h2>
+    <p class="lede">One confirmed missable risk, one time-sensitive strand, and the honest news: everything else stays available after the credits.</p>
+    <div id="missableCards"></div>
+    <div class="note-box">
+      <h3>Everything else stays open</h3>
+      <p>All six side-story finales and the whole 100% checklist stay available after the credits, including the 35-task 100% checklist itself (it only appears after the story, under Progress &gt; Stats &gt; 100% Completion — but work done earlier still counts). Cheats switch off trophies and saving, so keep them off on your trophy save.</p>
+    </div>
+    <div class="note-box">
+      <h3>Save discipline</h3>
+      <p>Keep a manual save at the start of every chapter plus one untouched save from just before the final mission. There are 15 manual slots plus 1 autosave. There is no mission replay and no New Game Plus at launch, so a missed Chapter 1 spot can force a second playthrough.</p>
+    </div>
+  </section>
+
+  <section id="view-progress" class="view" hidden>
+    <h2>Progress &amp; settings</h2>
+    <div class="cards" id="progressCards"></div>
+    <div class="settings">
+      <h3>Save data</h3>
+      <p>Your progress lives only in this browser (local storage). Export it to keep a backup, or import a backup file — only the 55 official trophy names are recognised.</p>
+      <div class="btnrow">
+        <button id="exportBtn">Export progress (JSON)</button>
+        <label class="filebtn">Import progress<input type="file" id="importFile" accept=".json,application/json" hidden></label>
+        <button id="resetBtn" class="danger">Reset all progress</button>
+      </div>
+      <p class="import-msg" id="importMsg" aria-live="polite"></p>
+      <label class="spoiler"><input type="checkbox" id="spoilerToggle2" checked> Spoiler mode — hide unearned story trophies</label>
+    </div>
+    <div class="about">
+      <h3>About this guide</h3>
+      <p>Grand Theft Auto VI released 19 November 2026. Rockstar, Sony and Microsoft have published no separate official trophy-list page — the "official list" here is the PlayStation 5 trophy list as mirrored by Exophase and PSNProfiles, which agree on every name, description and grade. Trophy names and descriptions are quoted exactly as PlayStation publishes them; every guide is written in our own words from those descriptions and the cited sources, and says plainly where a method is still unconfirmed at launch. Press estimates put a full platinum run near 200 hours; that is a press estimate, not an official figure. No Rockstar logo or official artwork is used anywhere in this guide.</p>
+      <p>Sources: <span id="aboutSources"></span></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Leonida Platinum — an unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. Works fully offline; no data leaves your browser.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
